@@ -198,48 +198,68 @@ function handleClick() {
 
 // 9.JS DOM Working with Form Input function
 // Function to validate the form on submit
-function validateForm() {
-    // Get form input values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+
+document.getElementById('myForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
 
     // Clear previous error messages
     clearErrors();
 
-    // Initialize error flag
-    let hasError = false;
+    // Get form field values
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
 
-    // Validate Name
+    // Perform validation
+    var isValid = true;
+
+    // Name validation
     if (name === '' || !/^[a-zA-Z]+$/.test(name)) {
-        displayError('nameError', 'Please enter a valid name (only letters allowed)');
-        hasError = true;
+        document.getElementById('nameError').textContent = 'Name should not be empty and should contain only letters.';
+        isValid = false;
     }
 
-    // Validate Email
-    if (email === '' || !/\S+@\S+\.\S+/.test(email)) {
-        displayError('emailError', 'Please enter a valid email address');
-        hasError = true;
+    // Email validation
+    if (!isValidEmail(email)) {
+        document.getElementById('emailError').textContent = 'Email should be a valid email address.';
+        isValid = false;
     }
 
-    // Validate Password
-    if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) {
-        displayError('passwordError', 'Please enter a valid password (minimum 8 characters, one uppercase letter, one lowercase letter, and one digit)');
-        hasError = true;
+    // Password validation
+    if (!isValidPassword(password)) {
+        document.getElementById('passwordError').textContent = 'Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit.';
+        isValid = false;
     }
 
-    // Validate Confirm Password
+    // Confirm Password validation
     if (password !== confirmPassword) {
-        displayError('confirmPasswordError', 'Passwords do not match');
-        hasError = true;
+        document.getElementById('confirmPasswordError').textContent = 'Confirm Password should match the Password field.';
+        isValid = false;
     }
 
-    // Prevent form submission if there are errors
-    if (hasError) {
-        e.preventDefault();
+    // Submit the form if valid
+    if (isValid) {
+        alert('Form submitted successfully!');
     }
+});
+
+// Helper function to validate email
+function isValidEmail(email) {
+    // Use a simple regular expression to validate email format
+    var emailRegex = /^\S+@\S+\.\S+$/;
+    return emailRegex.test(email);
 }
+
+// Helper function to validate password
+function isValidPassword(password) {
+    // Use a regular expression to enforce password requirements
+    var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    return passwordRegex.test(password);
+}
+
+
+
 
 // Function to display an error message
 function displayError(elementId, message) {
