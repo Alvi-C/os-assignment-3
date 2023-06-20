@@ -206,13 +206,13 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     clearErrors();
 
     // Get form field values
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirmPassword').value;
 
     // Perform validation
-    var isValid = true;
+    let isValid = true;
 
     // Name validation
     if (name === '' || !/^[a-zA-Z]+$/.test(name)) {
@@ -247,14 +247,14 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 // Helper function to validate email
 function isValidEmail(email) {
     // Use a simple regular expression to validate email format
-    var emailRegex = /^\S+@\S+\.\S+$/;
+    let emailRegex = /^\S+@\S+\.\S+$/;
     return emailRegex.test(email);
 }
 
 // Helper function to validate password
 function isValidPassword(password) {
     // Use a regular expression to enforce password requirements
-    var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     return passwordRegex.test(password);
 }
 
