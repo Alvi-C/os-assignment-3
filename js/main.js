@@ -301,7 +301,7 @@ async function getList() {
     const url = "https://api.example.com/data";
     let res = await fetch(url);
     if (res.status == 200) {
-        // handle the data
+        console.log(res.data);
     } else {
         console.log('error');
     }
@@ -322,18 +322,8 @@ function sendPostRequest() {
         },
         body: JSON.stringify(data)
     })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error("Error: " + response.status);
-            }
-        })
-        .then(responseData => {
-            // Handle the response data here
-            console.log(responseData);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        .then(res => res.json())
+        .then(resData => console.log(resData))
+        .catch((error) => console.log(error));
 }
+
