@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-3</title>
+    <link rel="stylesheet" href="./css/milligram.css">
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        .myClass {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main-div">
+        <h1>Assignment-3</h1>
+
+        <div>
+            <button onclick="openNewWindow('https://www.example.com', 800, 600)">Click</button>
+        </div>
+
+        <div>
+            <img id="img-change" src="./img/cat.jpeg" width="300px" alt="">
+        </div>
+
+        <!-- Q: 8.a) Create a webpage with a button and a paragraph element. -->
+        <div>
+            <h2>Button Click Example</h2>
+            <button onclick="handleClick()">Click me</button>
+            <p id="myParagraph"></p>
+        </div>
+
+        <!-- 9.JS DOM Working with Form Input: -->
+        <div>
+            <h3>Form Validation Example</h3>
+            <form onsubmit="validateForm()">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <span id="nameError" class="error"></span>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span id="emailError" class="error"></span>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span id="passwordError" class="error"></span>
+                </div>
+                <div>
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <span id="confirmPasswordError" class="error"></span>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- 10.DOM Manipulate CSS Class:  Create a webpage with a button and a paragraph element.-->
+        <div>
+            <h3>DOM Manipulate CSS Class Example</h3>
+            <button onclick="addHighlightClass()">Add Highlight</button>
+            <p id="paragraph">This is a paragraph.</p>
+        </div>
+
+        <!-- 11.Create Element & Append Element: -->
+        <div>
+            <h3>Create Element & Append Element Example</h3>
+            <ul id="myList"></ul>
+            <button onclick="createListItems()">Create List Items</button>
+        </div>
+
+        <!-- 12.DOM Change Attribute Value: -->
+        <div>
+            <h3>DOM Change Attribute Value Example</h3>
+            <img id="change-image" src="/img/cat.jpeg" alt="Initial Image">
+            <button onclick="changeImageSource()">Change Image Source</button>
+        </div>
+
+
+        <!-- 13.DOM Query Selector: -->
+        <div>
+            <h3>DOM Query Selector Example</h3>
+            <p class="myClass" id="paragraph1">This is paragraph 1.</p>
+            <p class="myClass" id="paragraph2">This is paragraph 2.</p>
+            <p class="otherClass" id="paragraph3">This is paragraph 3.</p>
+            <p class="myClass" id="paragraph4">This is paragraph 4.</p>
+            <button onclick="changeTextColor()">Change Text Color</button>
+        </div>
+    </main>
+
+
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>
